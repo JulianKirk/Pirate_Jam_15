@@ -4,6 +4,7 @@ public class PlatformMovement : MonoBehaviour
 {
     public float Speed;
 
+    public int NumberOfJumps;
     public float JumpSpeed;
     public float JumpUpTime;
     public float TypicalGravityScale;

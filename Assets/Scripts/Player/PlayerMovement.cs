@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //private float camAngle = Mathf.Deg2Rad * 45;
     public Transform CamTarget;
+    public float RotationSpeed;
 
     public float Speed;
     public int NumberOfJumps;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var camAngle = CamTarget.eulerAngles.y * Mathf.Deg2Rad;
+        var camAngle = Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad;
 
         var sinCam = Mathf.Sin(camAngle);
         var cosCam = Mathf.Cos(camAngle);
@@ -59,6 +60,17 @@ public class PlayerMovement : MonoBehaviour
         {
             remainingJumpUpTime = JumpUpTime;
             remainingJumps = NumberOfJumps;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("Maybe im trolling");
+            CamTarget.Rotate(new Vector3(0, -RotationSpeed * Time.deltaTime, 0));
+        }
+        
+        if (Input.GetKey(KeyCode.Q))
+        {
+            CamTarget.Rotate(new Vector3(0, RotationSpeed * Time.deltaTime, 0));
         }
     }
 

@@ -266,9 +266,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 260667936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7ded2f72389ca4999fbc2f03e48568, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aac2a8d7da69e34da76d72f1c4a89ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CamTarget: {fileID: 334175057}
   Speed: 4
   NumberOfJumps: 2
   JumpUpTime: 0.1
@@ -618,13 +619,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: -6, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 334175057}
-  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0

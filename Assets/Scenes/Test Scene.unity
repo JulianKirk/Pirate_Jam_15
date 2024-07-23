@@ -274,12 +274,10 @@ MonoBehaviour:
   Speed: 4
   NumberOfJumps: 2
   JumpUpTime: 0.1
-  remainingJumpUpTime: 0
-  remainingJumps: 0
-  playerRigidbody: {fileID: 0}
   GroundCheck: {fileID: 1077775583}
   GroundCheckRadius: 0.01
   WhatIsGround:
+    serializedVersion: 2
     m_Bits: 8
 --- !u!1 &334175056
 GameObject:

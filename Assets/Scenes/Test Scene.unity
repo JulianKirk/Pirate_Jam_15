@@ -266,9 +266,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 260667936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7ded2f72389ca4999fbc2f03e48568, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aac2a8d7da69e34da76d72f1c4a89ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CamTarget: {fileID: 334175057}
+  RotationSpeed: 25
   Speed: 4
   NumberOfJumps: 2
   JumpUpTime: 0.1

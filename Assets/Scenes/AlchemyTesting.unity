@@ -832,7 +832,6 @@ MonoBehaviour:
   Velocity: {x: 0, y: 1, z: 0}
   Duration: 3
   IsGravityEnabled: 0
-  IsKinematic: 1
 --- !u!54 &1207968404
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -979,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cf02ef9333dc64b8dcd247793d39ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Force: {x: 1, y: 1, z: 0}
+  Force: {x: 100, y: 100, z: 0}
 --- !u!54 &1236189674
 Rigidbody:
   m_ObjectHideFlags: 0

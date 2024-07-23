@@ -8,6 +8,8 @@ public class AlchemyButton : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Button pressed on : {gameObject.name}");
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Receiver.Activate();

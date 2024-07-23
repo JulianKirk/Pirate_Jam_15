@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("Maybe im trolling");
             CamTarget.Rotate(new Vector3(0, -RotationSpeed * Time.deltaTime, 0));
         }
         

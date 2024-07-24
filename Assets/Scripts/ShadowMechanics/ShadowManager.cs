@@ -1,7 +1,8 @@
-using System.Collections;
+using Assets.Scripts.ShadowMechanics.Receivers;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class LightManager : MonoBehaviour
 {
@@ -44,17 +45,50 @@ public class LightManager : MonoBehaviour
 
     bool CheckIfInShadow(ShadowReceiver receiver)
     {
+        var lightDetectionPoints = receiver.GetLightDetectionPoints();
+
         foreach (var light in lightSources)
         {
-            foreach (var target in receiver.ColliderCorners)
+            switch (light.type)
             {
-                if (Physics.Raycast(light.transform.position, (target - light.transform.position).normalized, out RaycastHit hitInfo))
-                {
-                    if (hitInfo.transform.gameObject == receiver.gameObject) //If it hit a collider attached to the receiver game object
+                case LightType.Directional:
+                    var direction = light.transform.rotation.eulerAngles;
+
+                    foreach (var target in lightDetectionPoints)
                     {
-                        return true;
+                        if (Physics.Raycast(target, -direction)) //If it hits any object it is in shadow
+                        {
+                            return true;
+                        }
                     }
-                }
+                    break;
+                case LightType.Spot:
+                    foreach (var target in lightDetectionPoints)
+                    {
+                            var innerSpotAngle = light.innerSpotAngle;
+                        var spotAngle = light.spotAngle;
+
+                        var rotation = Quaternion.Angle(Quaternion.LookRotation((target - light.transform.position).normalized, Vector3.up),
+                            Quaternion.LookRotation(light.transform.forward, light.transform.up));
+                    }
+                    break;
+                case LightType.Point:
+                    foreach (var target in lightDetectionPoints)
+                    {
+                        if (Physics.Raycast(light.transform.position, (target - light.transform.position).normalized, out RaycastHit hitInfo))
+                        {
+                            if (hitInfo.transform.gameObject == receiver.gameObject) //If it hit a collider attached to the receiver game object
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    break;
+                case LightType.Area:
+                    break;
+                default:
+                    Debug.Log("Light type not taken care of");
+                    break;
             }
         }
 

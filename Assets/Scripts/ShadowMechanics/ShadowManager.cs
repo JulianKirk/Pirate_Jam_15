@@ -12,13 +12,14 @@ public class LightManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shadowReceiverStates = new Dictionary<ShadowReceiver, bool>();
         lightSources = Object.FindObjectsOfType<Light>().ToList();
 
         var shadowReceivers = Object.FindObjectsOfType<ShadowReceiver>();
 
         foreach (var receiver in shadowReceivers)
         {
-            shadowReceiverStates[receiver] = CheckIfInShadow(receiver);
+            shadowReceiverStates.Add(receiver, CheckIfInShadow(receiver));
         }
     }
 
@@ -79,7 +80,7 @@ public class LightManager : MonoBehaviour
                         {
                             if (hitInfo.transform.gameObject == receiver.gameObject) //If it hit a collider attached to the receiver game object
                             {
-                                return true;
+                                return false;
                             }
                         }
                     }
